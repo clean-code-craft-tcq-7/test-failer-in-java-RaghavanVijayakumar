@@ -1,4 +1,4 @@
-public class TshirtsSizeTest {
+public class TshirtsSizeTest extends tshirts {
 
 	public void assertTShirtSize() {
 		assert (Tshirts.size(37) == "S");
