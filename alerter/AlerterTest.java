@@ -1,4 +1,4 @@
-public class alerterTest {
+public class AlerterTest {
     static int networkAlertStub(float celcius) {
     	if(celcius>0) {
     		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
@@ -7,7 +7,7 @@ public class alerterTest {
     	return 500;
     }
     
-    public static void main(String[] args) { 
+    public static void assertAlerterResponse() {
     Alerter.alertInCelcius(400.5f,false);
     Alerter.alertInCelcius(303.6f,false);
     assert(Alerter.alertFailureCount==0);
