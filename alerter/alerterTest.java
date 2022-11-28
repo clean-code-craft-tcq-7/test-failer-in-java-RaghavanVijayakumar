@@ -7,7 +7,7 @@ public class alerterTest {
     	return 500;
     }
     
-    public void assertAlerterResponse() {
+    public static void main(String[] args) { 
     Alerter.alertInCelcius(400.5f,false);
     Alerter.alertInCelcius(303.6f,false);
     assert(Alerter.alertFailureCount==0);
