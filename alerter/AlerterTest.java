@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Test;
+
 public class AlerterTest {
     static int networkAlertStub(float celcius) {
     	if(celcius>0) {
@@ -7,7 +9,8 @@ public class AlerterTest {
     	return 500;
     }
     
-    public static void assertAlerterResponse() {
+    @Test
+    public void assertAlerterResponse() {
     Alerter.alertInCelcius(400.5f,false);
     Alerter.alertInCelcius(303.6f,false);
     assert(Alerter.alertFailureCount==0);
