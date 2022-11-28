@@ -1,4 +1,4 @@
-public class tshirts {
+public class tshirts extends tshirtsSizeTest {
 	static String size(int cms) {
 		if (cms < 38) {
 			return "S";
