@@ -1,4 +1,4 @@
-import tshirtsSizeTest;
+import tshirts.tshirtsSizeTest;
 public class tshirts{
 	static String size(int cms) {
 		if (cms < 38) {
