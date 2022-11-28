@@ -1,4 +1,4 @@
-public class Tshirts {
+public class tshirts {
 	static String size(int cms) {
 		if (cms < 38) {
 			return "S";
@@ -9,8 +9,8 @@ public class Tshirts {
 		}
 	}
 	public static void main(String[] args) { 
-		TshirtsSizeTest tshirtsSizeTest = new TshirtsSizeTest();
-		tshirtsSizeTest.assertTShirtSize();
+		tshirtsSizeTest TshirtsSize = new tshirtsSizeTest();
+		TshirtsSize.assertTShirtSize();
 	}
 }
 
