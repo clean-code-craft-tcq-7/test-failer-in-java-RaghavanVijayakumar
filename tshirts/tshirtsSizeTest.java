@@ -1,5 +1,5 @@
-public class TshirtsSizeTest {
-	public TshirtsSizeTest assertTShirtSize() {
+public class tshirtsSizeTest {
+	public tshirtsSizeTest assertTShirtSize() {
 		assert (Tshirts.size(37) == "S");
 		assert (Tshirts.size(38) == "M");
 		assert (Tshirts.size(40) == "M");
