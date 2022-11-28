@@ -9,7 +9,7 @@ public class alerter {
     	return 500;
     	}
     	else
-    		return AlerterTest.networkAlertStub(celcius);
+    		return alerterTest.networkAlertStub(celcius);
     }
     static void alertInCelcius(float farenheit,boolean NetworkAlerter) {
         float celcius = (farenheit - 32) * 5 / 9;
