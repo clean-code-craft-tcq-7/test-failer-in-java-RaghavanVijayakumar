@@ -8,4 +8,9 @@ public class Tshirts {
 			return "L";
 		}
 	}
+	public static void main(String[] args) { 
+		TshirtsSizeTest tshirtsSizeTest = new TshirtsSizeTest();
+		tshirtsSizeTest.assertTShirtSize();
+	}
 }
+
