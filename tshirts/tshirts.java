@@ -1,4 +1,5 @@
-public class tshirts extends tshirtsSizeTest {
+import tshirtsSizeTest;
+public class tshirts{
 	static String size(int cms) {
 		if (cms < 38) {
 			return "S";
