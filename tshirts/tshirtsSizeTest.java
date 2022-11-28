@@ -1,5 +1,6 @@
-public class tshirtsSizeTest {
-	public tshirtsSizeTest assertTShirtSize() {
+public class TshirtsSizeTest {
+
+	public void assertTShirtSize() {
 		assert (Tshirts.size(37) == "S");
 		assert (Tshirts.size(38) == "M");
 		assert (Tshirts.size(40) == "M");
@@ -7,6 +8,5 @@ public class tshirtsSizeTest {
 		assert (Tshirts.size(0) != "S");
 		assert (Tshirts.size(-50) != "S");
 		System.out.println("All is well (maybe!)");
-		return this;
 	}
 }
