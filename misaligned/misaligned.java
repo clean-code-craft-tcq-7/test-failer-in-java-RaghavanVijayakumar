@@ -19,11 +19,13 @@ public class Misaligned {
 	public Misaligned assertMisAlignedTest(int i, int j) {
 		int result = Misaligned.printColorMap();
 		assert (result == 25);
+		int colorpairnumber=((i*5)+j+1);
+		String colorpairno=Integer.toString(colorpairnumber);
 		System.out.println("All is well (maybe!)");
 		String colorPairStr;
 		colorPairStr = Misaligned.getColorPair(i, j);
 		assert (colorPairStr.contains(Misaligned.majorColors[i]) && colorPairStr.contains(Misaligned.minorColors[j]));
-		assert (colorPairStr.contains("21"));
+		assert (colorPairStr.contains(colorpairno));
 		long count = colorPairStr.chars().filter(ch -> ch == '|').count();
 		assert (count == 2);
 		return this;
