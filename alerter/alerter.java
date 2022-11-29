@@ -1,4 +1,4 @@
-public class Alerter {
+public class alerter {
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius, boolean isProductionCode) {
@@ -9,7 +9,7 @@ public class Alerter {
 			}
 			return 500;
 		} else
-			return AlerterTest.networkAlertStub(celcius);
+			return networkAlertStub(celcius);
 	}
 
 	static void alertInCelcius(float farenheit, boolean NetworkAlerter) {
@@ -33,14 +33,14 @@ public class Alerter {
     }
     
 	 public static void main(String args[]) {
-		    Alerter.alertInCelcius(400.5f,false);
-		    Alerter.alertInCelcius(303.6f,false);
-		    assert(Alerter.alertFailureCount==0);
-		    Alerter.alertInCelcius(-200.0f,false);
-		    assert(Alerter.alertFailureCount==1);
-		    Alerter.alertInCelcius(0, false);
-		    assert(Alerter.alertFailureCount==2);
-		    System.out.printf("%d alerts failed.\n", Alerter.alertFailureCount);
+		    alerter.alertInCelcius(400.5f,false);
+		    alerter.alertInCelcius(303.6f,false);
+		    assert(alerter.alertFailureCount==0);
+		    alerter.alertInCelcius(-200.0f,false);
+		    assert(alerter.alertFailureCount==1);
+		    alerter.alertInCelcius(0, false);
+		    assert(alerter.alertFailureCount==2);
+		    System.out.printf("%d alerts failed.\n", alerter.alertFailureCount);
 		    System.out.println("All is well (maybe!)\n");
 		    }
 }
