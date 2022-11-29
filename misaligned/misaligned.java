@@ -15,4 +15,25 @@ public class Misaligned {
 	static String getColorPair(int i, int j) {
 		return String.format("%d | %s | %s\n", i * 5 + j, majorColors[i], minorColors[i]);
 	}
+	
+	public Misaligned assertMisAlignedTest(int i, int j) {
+		int result = Misaligned.printColorMap();
+		assert (result == 25);
+		System.out.println("All is well (maybe!)");
+		String colorPairStr;
+		colorPairStr = Misaligned.getColorPair(i, j);
+		assert (colorPairStr.contains(Misaligned.majorColors[i]) && colorPairStr.contains(Misaligned.minorColors[j]));
+		assert (colorPairStr.contains("21"));
+		long count = colorPairStr.chars().filter(ch -> ch == '|').count();
+		assert (count == 2);
+		return this;
+	}
+	
+	public static void main(String[] args) {
+		Misaligned assertMisAlignedTest=new Misaligned();
+		assertMisAlignedTest.assertMisAlignedTest(4, 0);
+		assertMisAlignedTest.assertMisAlignedTest(2, 1);
+		assertMisAlignedTest.assertMisAlignedTest(1, 1);
+		assertMisAlignedTest.assertMisAlignedTest(3, 3);
+	}
 }
