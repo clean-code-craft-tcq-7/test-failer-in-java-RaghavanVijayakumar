@@ -2,16 +2,16 @@ public class alerter {
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius, boolean isProductionCode) {
-			if (celcius > 0) {
-				System.out.println("ALERT: Temperature is " + celcius + " celcius");
-				return 500;
-			}
-			return 200;
+		if (celcius > 0) {
+			System.out.println("ALERT: Temperature is " + celcius + " celcius");
+			return 500;
 		}
+		return 200;
+	}
 
-	static void alertInCelcius(float farenheit, final AlerterInterface alerterstub) {
+	static void alertInCelcius(float farenheit, final AlerterInterface alerterStub) {
 		float celcius = (farenheit - 32) * 5 / 9;
-		int returnCode = alerterStub.sendTestRequset(celcius);
+		int returnCode = alerterStub.sendTestRequest(celcius);
 		System.out.println(returnCode);
 		if (returnCode != 200) {
 			// non-ok response is not an error! Issues happen in life!
@@ -21,17 +21,20 @@ public class alerter {
 			alertFailureCount += 0;
 		}
 	}
-	
-	 public static void main(String args[]) {
-		 AlerterInterface alerterStub = new NetworkAlertStub();
-		    alertInCelcius(400.5f,alerterstub);
-		    alertInCelcius(303.6f,alerterstub);
-		    assert(alerter.alertFailureCount==0);
-		    alerter.alertInCelcius(-200.0f,alerterstub);
-		    assert(alerter.alertFailureCount==1);
-		    alerter.alertInCelcius(0, alerterstub);
-		    assert(alerter.alertFailureCount==2);
-		    System.out.printf("%d alerts failed.\n", alerter.alertFailureCount);
-		    System.out.println("All is well (maybe!)\n");
-		    }
+
+	public static void main(String args[]) {
+		AlerterInterface alerterStub = new NetworkAlerterStub();
+		alertInCelcius(400.5f, alerterStub);
+		assert (alerter.alertFailureCount == 1);
+		alertInCelcius(303.6f, alerterStub);
+		assert (alerter.alertFailureCount == 2);
+		alertInCelcius(200.0f, alerterStub);
+		assert (alerter.alertFailureCount == 2);
+		alertInCelcius(100, alerterStub);
+		assert (alerter.alertFailureCount == 2);
+		alertInCelcius(-200, alerterStub);
+		assert (alerter.alertFailureCount == 2);
+		System.out.printf("%d alerts failed.\n", alerter.alertFailureCount);
+		System.out.println("All is well (maybe!)\n");
+	}
 }
