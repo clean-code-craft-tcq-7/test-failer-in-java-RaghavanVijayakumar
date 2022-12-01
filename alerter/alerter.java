@@ -2,19 +2,16 @@ public class alerter {
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius, boolean isProductionCode) {
-		if (isProductionCode == true) {
 			if (celcius > 0) {
 				System.out.println("ALERT: Temperature is " + celcius + " celcius");
-				return 200;
+				return 500;
 			}
-			return 500;
-		} else
-			return networkAlertStub(celcius);
-	}
+			return 200;
+		}
 
-	static void alertInCelcius(float farenheit, boolean NetworkAlerter) {
+	static void alertInCelcius(float farenheit, final AlerterInterface alerterstub) {
 		float celcius = (farenheit - 32) * 5 / 9;
-		int returnCode = networkAlerter(celcius, NetworkAlerter);
+		int returnCode = alerterStub.sendTestRequset(celcius);
 		System.out.println(returnCode);
 		if (returnCode != 200) {
 			// non-ok response is not an error! Issues happen in life!
@@ -24,21 +21,15 @@ public class alerter {
 			alertFailureCount += 0;
 		}
 	}
-	static int networkAlertStub(float celcius) {
-    	if(celcius>0) {
-    		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
-    		 return 200; 
-    	}
-    	return 500;
-    }
-    
+	
 	 public static void main(String args[]) {
-		    alerter.alertInCelcius(400.5f,false);
-		    alerter.alertInCelcius(303.6f,false);
+		 AlerterInterface alerterStub = new NetworkAlertStub();
+		    alertInCelcius(400.5f,alerterstub);
+		    alertInCelcius(303.6f,alerterstub);
 		    assert(alerter.alertFailureCount==0);
-		    alerter.alertInCelcius(-200.0f,false);
+		    alerter.alertInCelcius(-200.0f,alerterstub);
 		    assert(alerter.alertFailureCount==1);
-		    alerter.alertInCelcius(0, false);
+		    alerter.alertInCelcius(0, alerterstub);
 		    assert(alerter.alertFailureCount==2);
 		    System.out.printf("%d alerts failed.\n", alerter.alertFailureCount);
 		    System.out.println("All is well (maybe!)\n");
