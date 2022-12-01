@@ -1,4 +1,4 @@
-public class alerter {
+public class alerter extends NetworkAlerterStub {
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius) {
