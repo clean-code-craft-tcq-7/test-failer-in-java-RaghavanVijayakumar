@@ -33,6 +33,7 @@ public class Misaligned {
 	
 	public static void main(String[] args) {
 		Misaligned assertMisAlignedTest=new Misaligned();
+		int i = 0, j = 0;
 		for(i = 0; i < 5; i++){
 			for(j = 0; j < 5; j++){
 		assertMisAlignedTest.assertMisAlignedTest(i, j);
