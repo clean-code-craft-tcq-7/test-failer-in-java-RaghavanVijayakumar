@@ -1,7 +1,7 @@
 public class alerter {
 	static int alertFailureCount = 0;
 
-	static int networkAlerter(float celcius, boolean isProductionCode) {
+	static int networkAlerter(float celcius) {
 		if (celcius > 0) {
 			System.out.println("ALERT: Temperature is " + celcius + " celcius");
 			return 500;
