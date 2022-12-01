@@ -27,7 +27,7 @@ public class alerter{
 	}
 	
 	public static void main(String args[]) {
-			AlerterInterface alerterStub =new Alerter.AlerterInterface() {	
+			AlerterInterface alerterStub =new alerter.AlerterInterface() {	
 			public Integer sendTestRequest(float celcius) {
 				if(celcius>150) {
 		    		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
