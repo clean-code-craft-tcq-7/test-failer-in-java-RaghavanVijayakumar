@@ -21,17 +21,17 @@ public class alerter{
 			alertFailureCount += 0;
 		}
 	}
-
-		public	Integer sendTestRequest(float celcius) {
-    	if(celcius>150) {
-    		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
-    		 return 500; 
-    	}
-    	return 200;
-    }
 	
 	public static void main(String args[]) {
-		AlerterInterface alerterStub = new NetworkAlerterStub();
+			AlerterInterface alerterStub =new Alerter.AlerterInterface() {	
+			public Integer sendTestRequest(float celcius) {
+				if(celcius>150) {
+		    		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
+		    		 return 500; 
+		    	}
+		    	return 200;
+			}
+		};
 		alertInCelcius(400.5f, alerterStub);
 		assert (alerter.alertFailureCount == 1);
 		alertInCelcius(303.6f, alerterStub);
