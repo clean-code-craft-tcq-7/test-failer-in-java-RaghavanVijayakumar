@@ -19,7 +19,7 @@ public class Misaligned {
 	public Misaligned assertMisAlignedTest(int i, int j) {
 		int result = Misaligned.printColorMap();
 		assert (result == 25);
-		int colorpairnumber=((i*5)+j+1);
+		int colorpairnumber=((i*majorColors.length)+j+1);
 		String colorpairno=Integer.toString(colorpairnumber);
 		System.out.println("All is well (maybe!)");
 		String colorPairStr;
@@ -33,9 +33,10 @@ public class Misaligned {
 	
 	public static void main(String[] args) {
 		Misaligned assertMisAlignedTest=new Misaligned();
-		assertMisAlignedTest.assertMisAlignedTest(4, 0);
-		assertMisAlignedTest.assertMisAlignedTest(2, 1);
-		assertMisAlignedTest.assertMisAlignedTest(1, 1);
-		assertMisAlignedTest.assertMisAlignedTest(3, 3);
+		for(int i =0;i<5;i++){
+			for(int j=0;j<5;j++){
+		assertMisAlignedTest.assertMisAlignedTest(i, j);
+			}
+		}
 	}
 }
