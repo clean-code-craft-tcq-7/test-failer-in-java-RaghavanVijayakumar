@@ -1,4 +1,4 @@
-public class alerter implements AlerterInterface {
+public class alerter{
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius) {
@@ -31,7 +31,7 @@ public class alerter implements AlerterInterface {
     }
 	
 	public static void main(String args[]) {
-		AlerterInterface alerterStub = new alerter();
+		AlerterInterface alerterStub = new NetworkAlerterStub();
 		alertInCelcius(400.5f, alerterStub);
 		assert (alerter.alertFailureCount == 1);
 		alertInCelcius(303.6f, alerterStub);
