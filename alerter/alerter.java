@@ -1,4 +1,4 @@
-public class alerter extends NetworkAlerterStub {
+public class alerter implements AlerterInterface {
 	static int alertFailureCount = 0;
 
 	static int networkAlerter(float celcius) {
@@ -22,8 +22,16 @@ public class alerter extends NetworkAlerterStub {
 		}
 	}
 
+		public	Integer sendTestRequest(float celcius) {
+    	if(celcius>150) {
+    		System.out.println("ALERT: Temperature is networkstub" + celcius + " celcius");
+    		 return 500; 
+    	}
+    	return 200;
+    }
+	
 	public static void main(String args[]) {
-		AlerterInterface alerterStub = new NetworkAlerterStub();
+		AlerterInterface alerterStub = new alerter();
 		alertInCelcius(400.5f, alerterStub);
 		assert (alerter.alertFailureCount == 1);
 		alertInCelcius(303.6f, alerterStub);
