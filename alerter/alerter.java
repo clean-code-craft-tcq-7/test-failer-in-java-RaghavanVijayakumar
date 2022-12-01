@@ -22,6 +22,10 @@ public class alerter{
 		}
 	}
 	
+		public interface AlerterInterface {
+		public Integer sendTestRequest(float celcius);
+	}
+	
 	public static void main(String args[]) {
 			AlerterInterface alerterStub =new Alerter.AlerterInterface() {	
 			public Integer sendTestRequest(float celcius) {
