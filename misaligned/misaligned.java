@@ -1,13 +1,11 @@
-import org.junit.jupiter.api.Test;
-
 public class Misaligned {
 	static String majorColors[] = { "White", "Red", "Black", "Yellow", "Violet" };
 	static String minorColors[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
 
 	static int printColorMap() {
 		int i = 0, j = 0;
-		for (i = 0; i <5; i++) {
-			for (j = 0; j <5; j++) {
+		for (i = 0; i < 5; i++) {
+			for (j = 0; j < 5; j++) {
 				System.out.printf(getColorPair(i, j));
 				System.out.println("new");
 			}
@@ -16,12 +14,12 @@ public class Misaligned {
 	}
 
 	static String getColorPair(int i, int j) {
-		return String.format("%d | %s | %s\n", i * 5 + j+1, majorColors[i], minorColors[j]);
+		return String.format("%d | %s | %s\n", i * 5 + j + 1, majorColors[i], minorColors[j]);
 	}
-	
+
 	public Misaligned assertMisAlignedTest(int i, int j) {
-		int colorpairnumber=((i*majorColors.length)+j+1);
-		String colorpairno=Integer.toString(colorpairnumber);
+		int colorpairnumber = ((i * majorColors.length) + j + 1);
+		String colorpairno = Integer.toString(colorpairnumber);
 		System.out.println("All is well (maybe!)");
 		String colorPairStr;
 		colorPairStr = Misaligned.getColorPair(i, j);
@@ -31,14 +29,13 @@ public class Misaligned {
 		assert (count == 2);
 		return this;
 	}
-	
-	@Test
-	public void test() {
-		Misaligned assertMisAlignedTest=new Misaligned();
+
+	public static void main(String args[]) {
+		Misaligned assertMisAligned = new Misaligned();
 		int i = 0, j = 0;
-		for(i = 0; i < 5; i++){
-			for(j = 0; j < 5; j++){
-		assertMisAlignedTest.assertMisAlignedTest(i, j);
+		for (i = 0; i < 5; i++) {
+			for (j = 0; j < 5; j++) {
+				assertMisAligned.assertMisAlignedTest(i, j);
 			}
 		}
 	}
