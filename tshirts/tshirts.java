@@ -4,7 +4,7 @@ public class Tshirts {
 			return "S";
 		} else if (cms > 38 && cms < 42) {
 			return "M";
-		} else if (cms => 42) {
+		} else if (cms >= 42) {
 			return "L";
 		} else
 			return "INVALID";
